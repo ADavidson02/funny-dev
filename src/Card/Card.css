@@ -1,0 +1,16 @@
+.joke-card{
+  background-color: white;
+  outline: teal 6px solid;
+  color: teal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 22px;
+  padding: 3px;
+  border-radius: 2px;
+}
+
+.cancel-button{
+  background-color: teal;
+  color: white;
+}
