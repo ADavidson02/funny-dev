@@ -1,0 +1,53 @@
+/* .joke-card{
+  background-color: white;
+  outline: teal 6px solid;
+  color: teal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 22px;
+  padding: 3px;
+  border-radius: 2px;
+} */
+.joke-card {
+  width: 33rem;
+  height: 10rem;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  margin-bottom: 36px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+}
+
+.joke-card:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+  margin: -20px;
+}
+
+.heart-button {
+  background-color: teal;
+  color: white;
+  width: 50px;
+  border: transparent;
+  outline: none;
+  border-radius: 0%;
+}
+
+.heart-button:focus {
+  background-color: #D53B9D;
+}
+.heart-button:visited{
+
+}
+
