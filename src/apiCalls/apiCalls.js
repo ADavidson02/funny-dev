@@ -38,5 +38,13 @@ export const addNewFavorite = (id, joke) => {
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.log(error))
+}
 
+export const removeJoke = (id) => {
+  return fetch(`http://localhost:3001/api/v1/favorites/${id}`, {
+    method: "DELETE"
+  })
+    .then((response) => response.json())
+    .then((result) => console.log("result", result))
+    .catch((error) => console.log(error));
 }
