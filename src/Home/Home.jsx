@@ -4,6 +4,7 @@ import { getJoke, addNewFavorite } from "../apiCalls/apiCalls";
 import Card from '../Card/Card';
 import Container from '../Container/Container';
 import Saved from '../Saved/Saved';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   constructor() {
@@ -32,6 +33,9 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <Link to="/favorites">
+          <button>Favorites</button>
+        </Link>
         <h2>Home component</h2>
         <Container jokeSlips={this.state.jokes} saveCard={this.saveCard} />
       </div>
