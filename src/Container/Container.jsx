@@ -1,27 +1,21 @@
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Card from '../Card/Card';
 
 const Container = (props) => {
-  const jokeCards = props.jokeSlips.map(joke => {
+  const jokeCards = props.jokeSlips.map((joke) => {
     return (
       <div key={joke.id}>
-      <Card
-        id={joke.id}
-        joke={joke.joke}
-        setup={joke.setup}
-        delivery={joke.delivery}
-        saveCard={props.saveCard}
+        <Card
+          id={joke.id}
+          joke={joke.joke}
+          saveCard={props.saveCard}
         />
       </div>
-    )
-  })
-  
-  return(
-    <div>
-      {jokeCards}
-    </div>
-  )
-}
+    );
+  });
+
+  return <div>{jokeCards}</div>;
+};
 
 export default Container;
