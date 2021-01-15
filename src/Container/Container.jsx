@@ -10,6 +10,7 @@ const Container = (props) => {
           id={joke.id}
           joke={joke.joke}
           saveCard={props.saveCard}
+          deleteJoke={props.deleteJoke}
         />
       </div>
     );

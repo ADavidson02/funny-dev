@@ -1,6 +1,9 @@
 
 import React, { Component } from 'react';
-import { getAllFavorites } from '../apiCalls/apiCalls'
+import { getAllFavorites, removeJoke } from '../apiCalls/apiCalls';
+import Card from '../Card/Card';
+import Container from '../Container/Container';
+import { Link } from 'react-router-dom';
 
 class Saved extends Component {
   constructor() {
@@ -16,9 +19,20 @@ class Saved extends Component {
     console.log(allJokes)
   }
 
+  deleteJoke = (id) => {
+    // const badJoke = this.state.favorites.find(joke => joke.id === id)
+    const filteredJokes = this.state.favorites.filter(joke => joke.id !== id)
+    removeJoke(id)
+    this.setState({favorites: filteredJokes})
+  }
+
   render() {
     return(
-      <h2>Favorites</h2>
+      <div>
+        <Link to='/'><button>Home</button></Link>
+        <h2>My favorite jokes</h2>
+        <Container jokeSlips={this.state.favorites} deleteJoke={this.deleteJoke} />
+      </div>
     )
   }
 }

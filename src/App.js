@@ -6,7 +6,6 @@ import React from "react";
 import Saved from './Saved/Saved';
 
 
-
 function App() {
   return (
     <section className='App'>
