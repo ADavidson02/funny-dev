@@ -10,6 +10,7 @@ function App() {
   return (
     <section className='App'>
       <div>
+        <h2>Funny-Dev</h2>
         <Router>
           <Switch>
             <Route path='/favorites' component={Saved} />

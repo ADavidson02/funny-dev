@@ -1,0 +1,5 @@
+.home {
+  outline: green 4px solid;
+  display: flex;
+  justify-content: center;
+}
