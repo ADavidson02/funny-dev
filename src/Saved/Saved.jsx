@@ -1,14 +1,11 @@
 
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getAllFavorites, removeJoke, addNewFavorite  } from '../apiCalls/apiCalls';
-import Card from '../Card/Card';
 import './Saved.css';
 import Container from '../Container/Container';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import { Button } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
 Modal.setAppElement("body");
 
 
@@ -30,7 +27,7 @@ function Saved() {
   var subtitle;
   const [modalIsOpen, setIsOpen] = useState(false)
   const [ favorites, setFavorites ] = useState([])
-  const [error, setError] = useState('')
+  // const [error, setError] = useState('')
   const [newJoke, setNewJoke] = useState('')
   const [inputError, setInputError] = useState(false)
 
@@ -47,6 +44,7 @@ function Saved() {
     addNewUserJoke(newUserJoke)
     addNewFavorite(newUserJoke.id, newUserJoke.joke)
     cleanInputs()
+    closeModal()
   }
 
   const addNewUserJoke = (userJoke) => {
@@ -66,22 +64,16 @@ function Saved() {
   }
 
   function closeModal(e) {
-    debugger
     setIsOpen(false)
     e.stopPropagation();
   }
 
   const getFavorites = async () => {
-    const url = 'http://localhost:3001/api/v1/favorites'
-    setError('')
-
-    try {
-      const response = await fetch(url)
-      const favorites = await response.json()
+    try{
+      const favorites = await getAllFavorites()
       setFavorites(favorites)
-      console.log(favorites)
-    } catch(error) {
-      setError(error.message)
+    } catch (error) {
+      setInputError(error.message)
     }
   }
 
@@ -113,9 +105,9 @@ function Saved() {
           style={customStyles}
           contentLabel="Add joke modal"
         >
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add a new joke</h2>
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add a new joke here</h2>
           <form>
-            <button onClick={closeModal}>CLOSE</button>
+            <Button className='close-button' variant='contained' color='primary' onClick={closeModal}>CLOSE</Button>
             <input
               type="text"
               placeholder="Add joke here"
@@ -130,7 +122,7 @@ function Saved() {
         </Modal>
         <div className="spacer"></div>
         <h2>My favorite jokes</h2>
-        {!favorites.length && <h2>You do not have any saved jokes. </h2>}
+        {!favorites.length && <h2>You do not have any saved jokes.</h2>}
         <Container jokeSlips={favorites} deleteJoke={deleteJoke} />
       </div>
     );
