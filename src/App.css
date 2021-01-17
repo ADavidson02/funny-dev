@@ -1,8 +1,11 @@
 .App {
   text-align: center;
-  background-image: url("https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-image: url("https://images.pexels.com/photos/1568607/pexels-photo-1568607.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   width: 88em;
   height: 48em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -18,13 +21,13 @@
 
 .App-header {
   background-color: white;
-  min-height: 100vh;
+  min-height: 7vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: ;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-
+  font-size: calc(15px + 2vmin);
+  margin-bottom: 8em;
 }
 
 .App-link {

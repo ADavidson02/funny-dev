@@ -1,5 +1,9 @@
 .home {
-  outline: green 4px solid;
+  outline: green 10px solid;
   display: flex;
   justify-content: center;
+}
+.favorite-button {
+  margin: 1em;
+  display:flexbox
 }

@@ -5,7 +5,9 @@ import Card from '../Card/Card';
 import Container from '../Container/Container';
 import Saved from '../Saved/Saved';
 import { Link } from 'react-router-dom';
+import { Button } from "@material-ui/core";
 import './Home.css'
+
 
 class Home extends Component {
   constructor() {
@@ -35,7 +37,7 @@ class Home extends Component {
     return (
       <div className='home'>
         <Link to="/favorites">
-          <button>Favorites</button>
+          <Button variant="contained" color="primary" className='favorite-button'>My Favorites</Button>
         </Link>
         <Container jokeSlips={this.state.jokes} saveCard={this.saveCard} />
       </div>
