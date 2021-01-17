@@ -19,6 +19,8 @@
   z-index: 1;
   background: inherit;
   overflow: hidden;
+  outline: orangered 2px solid;
+  display: flex;
 }
 
 .joke-card:before {
@@ -35,19 +37,7 @@
   margin: -20px;
 }
 
-.heart-button {
-  background-color: teal;
-  color: white;
-  width: 50px;
-  border: transparent;
-  outline: none;
-  border-radius: 0%;
-}
-
-.heart-button:focus {
-  background-color: #D53B9D;
-}
-.heart-button:visited{
-
+.love-button:focus{
+  color: pink;
 }
 

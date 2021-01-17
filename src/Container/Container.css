@@ -1,0 +1,4 @@
+.container {
+  outline: blue solid 3px;
+  display: flex;
+}
