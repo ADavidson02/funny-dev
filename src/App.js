@@ -11,6 +11,8 @@ function App() {
     <section className='App'>
       <div>
         <h2 className='App-header'>Funny-Dev</h2>
+      </div>
+      <div>
         <Router>
           <Switch>
             <Route path='/favorites' component={Saved} />
