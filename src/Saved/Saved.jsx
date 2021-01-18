@@ -5,7 +5,7 @@ import './Saved.css';
 import Container from '../Container/Container';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import { Button, ButtonGroup } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import PropTypes from 'prop-types';
 import SaveIcon from "@material-ui/icons/Save";
 Modal.setAppElement("body");
@@ -89,7 +89,7 @@ function Saved() {
 
     return (
       <div className="saved">
-        <h2 className='header' >My favorite jokes</h2>
+        <h2 className='header'>My favorite jokes</h2>
         <Link to="/">
           <Button aria-label="home" variant="contained" color="secondary">
             Home
