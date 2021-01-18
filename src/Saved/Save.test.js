@@ -1,4 +1,4 @@
-import { screen, render, waitFor } from '@testing-library/react';
+import { screen, render, waitFor, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Saved from './Saved';
 import useEvent from '@testing-library/user-event';
@@ -10,7 +10,6 @@ import {
   addNewFavorite,
 } from '../apiCalls/apiCalls';
 jest.mock('../apiCalls/apiCalls');
-import { act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 const renderWithRouter = (ui, { route = '/favorites' } = {}) => {
   window.history.pushState({}, 'favorites', route);
@@ -137,5 +136,18 @@ describe('Saved', () => {
     userEvent.click(deleteButton)
     await waitFor(() => 
       expect(foundJoke).not.toBeInTheDocument())
+  }),
+  it("should show a message when no jokes are saved", async () => {
+    const history = createMemoryHistory();
+    getAllFavorites.mockResolvedValue([])
+    await act(async () => {
+      renderWithRouter(
+        <Router history={history}>
+          <Saved />
+        </Router>,
+        {route: '/favorites'}
+      )
+    })
+    expect(screen.getByText("You do not have any saved jokes.")).toBeInTheDocument()
   })
 })
