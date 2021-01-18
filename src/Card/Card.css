@@ -1,5 +1,4 @@
 .joke-card{
-  /* background-color: white; */
   display: flex;
   flex-direction: center;
   justify-content: center;
@@ -13,20 +12,6 @@
   box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
   filter: blur(0px);
 }
-/* .joke-card {
-  width: 33rem;
-  height: 10rem;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
-  margin-bottom: 36px;
-  border-radius: 5px;
-  position: relative;
-  z-index: 1;
-  background: inherit;
-  overflow: hidden;
-  outline: orangered 2px solid;
-  display: flex;
-  justify-content: center;
-} */
 
 .joke-card:before {
   content: "";
@@ -42,7 +27,4 @@
   margin: -20px;
 }
 
-.love-button:focus{
-  color: pink;
-}
 

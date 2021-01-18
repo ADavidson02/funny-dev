@@ -1,14 +1,14 @@
 
-import React from 'react';
-import Card from '../Card/Card';
-import './Container.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import Card from "../Card/Card";
+import "./Container.css";
+import PropTypes from "prop-types";
 
 
 const Container = (props) => {
   const jokeCards = props.jokeSlips.map((joke) => {
     return (
-      <div key={joke.id} className='container'>
+      <div key={joke.id} className="container">
         <Card
           id={joke.id}
           joke={joke.joke}

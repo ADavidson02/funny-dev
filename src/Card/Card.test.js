@@ -1,20 +1,20 @@
-import { screen, render } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import Card from './Card';
-import { Router, MemoryRouter, BrowserRouter } from "react-router-dom";
-import { createMemoryHistory } from "history";
-const renderWithRouter = (ui, {route = '/favorites'} = {}) => {
-  window.history.pushState({}, 'favorites', route)
+
+import { screen, render } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import Card from "./Card";
+import { BrowserRouter } from "react-router-dom";
+const renderWithRouter = (ui, {route = "/favorites"} = {}) => {
+  window.history.pushState({}, "favorites", route)
   return render(
     ui, {wrapper: BrowserRouter}
   )
 }
 
-describe('Card', () => {
-  it('should render a jokeSlip', () => {
+describe("Card", () => {
+  it("should render a jokeSlip", () => {
     const mockJokeSlip = {
       id: 26,
-      joke: 'Why pink',
+      joke: "Why pink",
     };
     const mockSave = jest.fn();
     render(
@@ -25,13 +25,13 @@ describe('Card', () => {
       />
     );
 
-    expect(screen.getByText('Why pink')).toBeInTheDocument();
+    expect(screen.getByText("Why pink")).toBeInTheDocument();
   }),
 
-  it('should render a save button', () => {
+  it("should render a save button", () => {
     const mockJokeSlip = {
       id: 26,
-      joke: '!False',
+      joke: "!False",
     };
     const mockSave = jest.fn();
     render(
