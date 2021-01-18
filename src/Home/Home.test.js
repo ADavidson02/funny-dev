@@ -22,5 +22,6 @@ describe('Home', () => {
     const mockJokeOne = await waitFor(() => screen.getByText('Joke one'))
     const mockJokeTwo = await waitFor(() => screen.getByText('Joke two'))
     expect(mockJokeOne).toBeInTheDocument()
+    expect(mockJokeTwo).toBeInTheDocument()
   })
 })
