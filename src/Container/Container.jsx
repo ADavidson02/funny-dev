@@ -1,7 +1,8 @@
 
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Card from '../Card/Card';
 import './Container.css';
+import PropTypes from 'prop-types';
 
 
 const Container = (props) => {
@@ -20,5 +21,13 @@ const Container = (props) => {
 
   return <div>{jokeCards}</div>;
 };
+
+Container.prototype = {
+  jokeSlips: PropTypes.object,
+  id: PropTypes.number,
+  joke: PropTypes.string,
+  saveCard: PropTypes.func,
+  deleteJoke: PropTypes.func
+}
 
 export default Container;
