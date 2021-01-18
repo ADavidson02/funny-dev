@@ -90,6 +90,7 @@ function Saved() {
 
     return (
       <div className="saved">
+        <h2 className='header' >My favorite jokes</h2>
         <Link to="/">
           <Button aria-label="home" variant="contained" color="secondary">
             Home
@@ -141,7 +142,6 @@ function Saved() {
           </form>
         </Modal>
         <div className="spacer"></div>
-        <h2 className='header' >My favorite jokes</h2>
         {!favorites.length && <h2>You do not have any saved jokes.</h2>}
         <Container jokeSlips={favorites} deleteJoke={deleteJoke} />
       </div>
