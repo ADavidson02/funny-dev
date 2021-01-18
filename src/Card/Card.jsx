@@ -35,9 +35,9 @@ const Card = ({id, joke, saveCard, deleteJoke }) => {
           onClick={() => deleteJoke(id)}
         ></Button>
       )}
-      <article className="joke-card" key={id}>
+      <p key={id}>
         <h3>{joke}</h3>
-      </article>
+      </p>
     </section>
   );
 }
