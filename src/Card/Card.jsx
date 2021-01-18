@@ -13,7 +13,7 @@ const Card = ({id, joke, saveCard, deleteJoke }) => {
 
   return (
     <section className="joke-card">
-      {pathname === "/" ? (
+      {pathname === "/" && (
         <FormControlLabel
           control={
             <Checkbox
@@ -29,15 +29,17 @@ const Card = ({id, joke, saveCard, deleteJoke }) => {
         >
           save
         </FormControlLabel>
-      ) : (
+      )}
+      {pathname === "/favorites" && 
         <Button
+          aria-label="delete-button"
           startIcon={<DeleteIcon />}
           onClick={() => deleteJoke(id)}
         ></Button>
-      )}
-      <p key={id}>
+      }
+      <div key={id}>
         <h3>{joke}</h3>
-      </p>
+      </div>
     </section>
   );
 }
