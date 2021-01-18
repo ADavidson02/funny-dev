@@ -5,9 +5,10 @@ import './Saved.css';
 import Container from '../Container/Container';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import { Button } from "@material-ui/core";
+import { Button, ButtonGroup } from "@material-ui/core";
+import PropTypes from 'prop-types';
+import SaveIcon from "@material-ui/icons/Save";
 Modal.setAppElement("body");
-
 
 
 function Saved() {
@@ -18,16 +19,16 @@ function Saved() {
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
+      transform: "translate(-92%, -22%)",
       background: "#b3c6ff",
-      opacity: "100%",
+      opacity: "95%",
     },
   };
 
   var subtitle;
   const [modalIsOpen, setIsOpen] = useState(false)
   const [ favorites, setFavorites ] = useState([])
-  // const [error, setError] = useState('')
+  const [error, setError] = useState('')
   const [newJoke, setNewJoke] = useState('')
   const [inputError, setInputError] = useState(false)
 
@@ -60,12 +61,11 @@ function Saved() {
   }
 
   function afterOpenModal() {
-    subtitle.style.color = '#f00'
+    subtitle.style.color = 'red'
   }
 
-  function closeModal(e) {
+  function closeModal() {
     setIsOpen(false)
-    e.stopPropagation();
   }
 
   const getFavorites = async () => {
@@ -73,7 +73,7 @@ function Saved() {
       const favorites = await getAllFavorites()
       setFavorites(favorites)
     } catch (error) {
-      setInputError(error.message)
+      setError(error.message)
     }
   }
 
@@ -105,27 +105,51 @@ function Saved() {
           style={customStyles}
           contentLabel="Add joke modal"
         >
-          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Add a new joke here</h2>
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+            Add a new joke here
+          </h2>
           <form>
-            <Button className='close-button' variant='contained' color='primary' onClick={closeModal}>CLOSE</Button>
-            <input
-              type="text"
-              placeholder="Add joke here"
-              name="newJoke"
-              value={newJoke}
-              onChange={(event) => setNewJoke(event.target.value)}
-            />
-            <button onClick={submitJoke}>Save joke</button>
-            {inputError === true && <h2>Please add joke before submitting</h2>}
-            <div className="spacer"></div>
+              <textarea
+                className='text-area'
+                type="text"
+                wrap="soft"
+                placeholder="Add joke here"
+                name="newJoke"
+                value={newJoke}
+                onChange={(event) => setNewJoke(event.target.value)}
+              />
+              <Button
+                className='save-button'
+                variant="contained"
+                color="secondary"
+                icon={<SaveIcon />}
+                onClick={submitJoke}
+              >
+                Save joke
+              </Button>
+              {inputError === true && (
+                <h2>Please add joke before submitting</h2>
+              )}
+              <Button
+                className="close-button"
+                variant="contained"
+                color="primary"
+                onClick={closeModal}
+              >
+                CLOSE
+              </Button>
           </form>
         </Modal>
         <div className="spacer"></div>
-        <h2>My favorite jokes</h2>
+        <h2 className='header' >My favorite jokes</h2>
         {!favorites.length && <h2>You do not have any saved jokes.</h2>}
         <Container jokeSlips={favorites} deleteJoke={deleteJoke} />
       </div>
     );
+}
+
+Saved.propTypes = {
+  favorites: PropTypes.array,
 }
 
 export default Saved;

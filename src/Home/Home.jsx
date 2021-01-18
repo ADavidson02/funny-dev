@@ -4,7 +4,8 @@ import { getJoke, addNewFavorite } from "../apiCalls/apiCalls";
 import Container from '../Container/Container';
 import { Link } from 'react-router-dom';
 import { Button } from "@material-ui/core";
-import './Home.css'
+import './Home.css';
+import PropTypes from 'prop-types';
 
 
 class Home extends Component {
@@ -41,6 +42,12 @@ class Home extends Component {
       </div>
     );
   }
+}
+
+Home.propTypes = {
+  id: PropTypes.number,
+  jokes: PropTypes.array,
+  favorites: PropTypes.array
 }
 
 export default Home;
