@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+Mod 3 Binary Challange - Funny-Dev Joke board
+The link to our repo can be found there
+https://github.com/ADavidson02/funny-dev
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The link to the project description can be found here
+https://frontend.turing.io/projects/module-3/binary-challenge.html
 
-## Available Scripts
+Project Overview
+For this project, I deciced to work with creating an express server to have a simple back end I could post jokes to and fetch from. The current site is in the view of a single user. The user can save the random jokes that appears on the front page by pressing the heart button. Their saved jokes will then appear on the favorites page where the user can delete the jokes using the trash can button. Eventually there will be a search function to search the saved jokes and jokes with a punch line will also be added. 
 
-In the project directory, you can run:
 
-### `yarn start`
+Goals
+For this project I wanted to create a backend to hold the jokes the used favorited and have them reload. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Technologies
+Javascript, React, Router, Node, Jest, CSS, Material Ui
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Challenges
+Testing with router and testing conditionally rendered items
 
-### `yarn test`
+Wins
+A user can post data to the express server and recieve all the data back.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ScreenShots
 
-### `yarn build`
+![funny-dev three](https://user-images.githubusercontent.com/67513823/104970603-4eb8a180-59a9-11eb-9bf0-0ef976b59dc4.gif)
+Saving random jokes and adding a joke
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![funny-dev four](https://user-images.githubusercontent.com/67513823/104970659-7ad42280-59a9-11eb-8824-730d5cbef8a0.gif)
+Deleting jokes from the favorites page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Credit
+Amanda Davidson: https://github.com/ADavidson02 
