@@ -60,7 +60,7 @@ describe("App", () => {
       { id: 24, joke: "Joke four" },
       { id: 26, joke: "Joke five" },
     ]);
-    const history = createMemoryHistory();
+    const history = createMemoryHistory()
     await act( async () => {
       renderWithRouter(
       <Router history={history}>
@@ -74,14 +74,14 @@ describe("App", () => {
       expect(screen.queryByText("Joke two")).toBeInTheDocument()
     );
 
-    const favoritesLink = screen.getByText("My Favorites");
+    const favoritesLink = screen.getByText("My Favorites")
     act(() => {
       userEvent.click(favoritesLink)
     })
     await waitFor(() => 
       expect(screen.getByText("Joke four")).toBeInTheDocument())
     await waitFor(() => 
-      expect(screen.queryByText('Joke tow')).not.toBeInTheDocument())
+      expect(screen.queryByText("Joke two")).not.toBeInTheDocument())
     expect(screen.getByText("My favorite jokes")).toBeInTheDocument()
     const homeButton = screen.getByText('Home')
     userEvent.click(homeButton)

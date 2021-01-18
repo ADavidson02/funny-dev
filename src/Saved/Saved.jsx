@@ -98,9 +98,6 @@ function Saved() {
         <Button variant="contained" color="primary" onClick={openJokeModal}>
           Add a joke
         </Button>
-        <Button variant='contained' color='secondary'>
-          Search
-        </Button> 
         <Modal
           isOpen={jokeModalIsOpen}
           onAfterOpen={afterOpenJokeModal}

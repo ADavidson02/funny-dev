@@ -14,7 +14,7 @@ export const getJoke = async () => {
 }
 
 export const getAllFavorites = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/favorites');
+  const response = await fetch("http://localhost:3001/api/v1/favorites");
   if(response.status >= 200 && response.status <= 299 ) {
     const jsonResponse = response.json();
     return jsonResponse;
@@ -25,10 +25,10 @@ export const getAllFavorites = async () => {
 }
 
 export const addNewFavorite = (id, joke) => {
-  return fetch('http://localhost:3001/api/v1/favorites', {
-    method: 'POST',
+  return fetch("http://localhost:3001/api/v1/favorites", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
        id: id,
