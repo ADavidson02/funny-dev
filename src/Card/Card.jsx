@@ -27,7 +27,6 @@ const Card = ({id, joke, saveCard, deleteJoke }) => {
           }
           className="love-button"
         >
-          save
         </FormControlLabel>
       )}
       {pathname === "/favorites" && 
