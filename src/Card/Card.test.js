@@ -1,5 +1,4 @@
 import { screen, render } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import Card from './Card';
 import { Router } from "react-router-dom";
@@ -10,15 +9,14 @@ describe('Card', () => {
     const mockJokeSlip = {
       id: 26,
       joke: '!False',
-      saveCard: jest.fn()
     }
+    const mockSave = jest.fn()
     render(
       <Card 
-      id={mockJokeSlip.id}
-      joke={mockJokeSlip.joke}
-      saveCard={mockJokeSlip.saveCard}
-      />
-      )
+      id={mockJokeSlip.id} 
+      joke={mockJokeSlip.joke} 
+      saveCard={mockSave} />
+    );
       
       expect(screen.getByText('!False')).toBeInTheDocument();
       const saveButton = screen.getByRole("checkbox", { name: /save button/i })
