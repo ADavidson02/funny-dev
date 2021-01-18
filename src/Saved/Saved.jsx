@@ -14,19 +14,19 @@ Modal.setAppElement("body");
 function Saved() {
   const customStyles = {
     content: {
-      top: "19%",
-      left: "71%",
+      top: "36%",
+      left: "67%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      transform: "translate(-92%, -22%)",
-      background: "#b3c6ff",
-      opacity: "95%",
+      transform: "translate(-83%, -45%)",
+      background: 'rgb(78 127 144)',
+      opacity: "90%",
     },
   };
 
   var subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false)
+  const [jokeModalIsOpen, setJokeModalIsOpen] = useState(false)
   const [ favorites, setFavorites ] = useState([])
   const [error, setError] = useState('')
   const [newJoke, setNewJoke] = useState('')
@@ -34,7 +34,6 @@ function Saved() {
 
   const submitJoke = event => {
     event.preventDefault()
-    debugger
     const newUserJoke = {
       id: Date.now(),
       joke: newJoke
@@ -45,7 +44,7 @@ function Saved() {
     addNewUserJoke(newUserJoke)
     addNewFavorite(newUserJoke.id, newUserJoke.joke)
     cleanInputs()
-    closeModal()
+    closeJokeModal()
   }
 
   const addNewUserJoke = (userJoke) => {
@@ -56,16 +55,16 @@ function Saved() {
     setNewJoke('')
   }
 
-  function openModal() {
-    setIsOpen(true)
+  function openJokeModal() {
+    setJokeModalIsOpen(true)
   }
 
-  function afterOpenModal() {
-    subtitle.style.color = 'red'
+  function afterOpenJokeModal() {
+    subtitle.style.color = 'white'
   }
 
-  function closeModal() {
-    setIsOpen(false)
+  function closeJokeModal() {
+    setJokeModalIsOpen(false)
   }
 
   const getFavorites = async () => {
@@ -96,13 +95,14 @@ function Saved() {
             Home
           </Button>
         </Link>
-        <Button variant="contained" color="primary" onClick={openModal}>
+        <Button variant="contained" color="primary" onClick={openJokeModal}>
           Add a joke
         </Button>
+        <Button variant='contained' color='secondary' />
         <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
+          isOpen={jokeModalIsOpen}
+          onAfterOpen={afterOpenJokeModal}
+          onRequestClose={closeJokeModal}
           style={customStyles}
           contentLabel="Add joke modal"
         >
@@ -114,13 +114,14 @@ function Saved() {
                 className='text-area'
                 type="text"
                 wrap="soft"
+                style={{fontSize: 20}}
                 placeholder="Add joke here"
                 name="newJoke"
                 value={newJoke}
                 onChange={(event) => setNewJoke(event.target.value)}
               />
               <Button
-                className='save-button'
+                className='modal-buttons'
                 variant="contained"
                 color="secondary"
                 icon={<SaveIcon />}
@@ -132,10 +133,10 @@ function Saved() {
                 <h2>Please add joke before submitting</h2>
               )}
               <Button
-                className="close-button"
+                className="modal-buttons"
                 variant="contained"
                 color="primary"
-                onClick={closeModal}
+                onClick={closeJokeModal}
               >
                 CLOSE
               </Button>
