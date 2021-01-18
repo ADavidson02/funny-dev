@@ -1,7 +1,8 @@
 # Mod 3 Binary Challange - Funny-Dev Joke board
 
-### The link to our repo can be found there
+### The link to the repo can be found here
 https://github.com/ADavidson02/funny-dev
+https://github.com/ADavidson02/funny-dev-api
 
 
 ### The link to the project description can be found here
