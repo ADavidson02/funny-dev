@@ -1,6 +1,5 @@
 .spacer {
     width: 2em;
-   
 }
 .saved{
     box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
@@ -47,6 +46,34 @@
     filter: blur(0px);
 }
 .text-area:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(30px);
+  margin: -20px;
+}
+.search-area {
+    height: 11vh;
+    margin: 1em;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    padding: 1vh;
+    width: 30em;
+    padding: .5em;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    filter: blur(0px);
+}
+.search-area:before {
   content: "";
   position: absolute;
   background: inherit;

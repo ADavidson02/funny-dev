@@ -137,6 +137,7 @@ describe('Saved', () => {
     await waitFor(() => 
       expect(foundJoke).not.toBeInTheDocument())
   }),
+
   it("should show a message when no jokes are saved", async () => {
     const history = createMemoryHistory();
     getAllFavorites.mockResolvedValue([])
@@ -148,6 +149,71 @@ describe('Saved', () => {
         {route: '/favorites'}
       )
     })
+
     expect(screen.getByText("You do not have any saved jokes.")).toBeInTheDocument()
+  }),
+
+  it("should show a search modal", async () => {
+    const history = createMemoryHistory();
+    getAllFavorites.mockResolvedValue([{ id: 22, joke: "Joke six" }]);
+    await act(async () => {
+      renderWithRouter(
+        <Router history={history}>
+          <Saved />
+        </Router>,
+        { route: "/favorites" }
+      );
+    });
+
+    const searchModal = screen.getByText("Search");
+    userEvent.click(searchModal);
+
+    expect(screen.getByText("Search for a joke here")).toBeInTheDocument();
+  }),
+
+    it("should show a list of jokes that include the search word", async () => {
+    const history = createMemoryHistory();
+    getAllFavorites.mockResolvedValue([
+      { id: 22, joke: "Joke six" },
+      { id: 28, joke: "Joke eleven"}
+    ]);
+    await act(async () => {
+      renderWithRouter(
+        <Router history={history}>
+          <Saved />
+        </Router>,
+        { route: "/favorites" }
+      );
+    });
+    const searchModal = screen.getByText("Search");
+    userEvent.click(searchModal);
+    expect(screen.getByText("Search for a joke here")).toBeInTheDocument();
+    const searchButton = screen.getByTestId("search-button")
+    userEvent.type(screen.getByPlaceholderText("Search"), "eleven")
+    userEvent.click(searchButton)
+    expect(screen.getByText("Joke eleven")).toBeInTheDocument()
+    await waitFor(() => expect(screen.queryByText("Joke six")).not.toBeInTheDocument())
+  }),
+      it("should show a message when no jokes include the search word", async () => {
+    const history = createMemoryHistory();
+    getAllFavorites.mockResolvedValue([
+      { id: 22, joke: "Joke six" },
+      { id: 28, joke: "Joke eleven"}
+    ]);
+    await act(async () => {
+      renderWithRouter(
+        <Router history={history}>
+          <Saved />
+        </Router>,
+        { route: "/favorites" }
+      );
+    });
+    const searchModal = screen.getByText("Search");
+    userEvent.click(searchModal);
+    expect(screen.getByText("Search for a joke here")).toBeInTheDocument()
+    const searchButton = screen.getByTestId("search-button")
+    userEvent.type(screen.getByPlaceholderText("Search"), "two")
+    userEvent.click(searchButton)
+    expect(screen.getByTestId("search-error")).toBeInTheDocument()
   })
 })
