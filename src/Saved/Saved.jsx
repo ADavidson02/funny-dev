@@ -215,7 +215,7 @@ function Saved() {
         {searchError === true && (
           <h2 data-testid="search-error">
             Sorry, there are no results for that search. Press
-            <Link to="/"> here</Link> to go home or reload the page.
+            <Link to="/" data-testid="return-home"> here</Link> to go home or reload the page.
           </h2>
         )}
         <Container jokeSlips={favorites} deleteJoke={deleteJoke} />
