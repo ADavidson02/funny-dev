@@ -10,8 +10,7 @@ https://github.com/ADavidson02/funny-dev-api
 https://frontend.turing.io/projects/module-3/binary-challenge.html
 
 ## Project Overview
-For this project, I deciced to work with creating an express server to have a simple back end I could post jokes to and fetch from. The current site is in the view of a single user. The user can save the random jokes that appears on the front page by pressing the heart button. Their saved jokes will then appear on the favorites page where the user can delete the jokes using the trash can button. Eventually there will be a search function to search the saved jokes and jokes with a punch line will also be added. 
-
+For this project, I deciced to work with creating an express server to have a simple back end I could post jokes to and fetch from. The current site is in the view of a single user. The user can save the random jokes that appears on the front page by pressing the heart button. Their saved jokes will then appear on the favorites page where the user can delete the jokes using the trash can button or search their jokes by keywords. I would like to expand the site to include two part jokes and have a login page for users.
 
 ## Goals
 For this project I wanted to create a backend to hold the jokes the used favorited and have them reload. 
