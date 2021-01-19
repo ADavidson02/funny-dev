@@ -55,10 +55,8 @@ function Saved() {
   }
 
   const searchForJoke = (searchWord) =>  {
-    // const searchTerm = searchWord.toLowerCase()
     closeSearchModal()
     const searchTerm = searchInput.toLowerCase()
-    console.log(searchTerm)
     const results = favorites.filter(favorite => {
       return favorite.joke.includes(searchTerm)
     })
@@ -195,6 +193,7 @@ function Saved() {
             <Button
               variant="contained"
               color="secondary"
+              data-testid="search-button"
               onClick={searchForJoke}
             >
               Search
@@ -203,7 +202,6 @@ function Saved() {
               className="modal-buttons"
               variant="contained"
               color="primary"
-              data-testid="search-button"
               onClick={closeSearchModal}
             >
               CLOSE
@@ -215,7 +213,7 @@ function Saved() {
           <h2>You do not have any saved jokes.</h2>
         )}
         {searchError === true && (
-          <h2>
+          <h2 data-testid="search-error">
             Sorry, there are no results for that search. Press
             <Link to="/"> here</Link> to go home or reload the page.
           </h2>
