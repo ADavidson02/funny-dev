@@ -27,10 +27,13 @@ function Saved() {
 
   var subtitle;
   const [jokeModalIsOpen, setJokeModalIsOpen] = useState(false)
+  const [searchModalIsOpen, setSeachModalIsOpen] = useState(false)
   const [ favorites, setFavorites ] = useState([])
   const [error, setError] = useState('')
   const [newJoke, setNewJoke] = useState('')
   const [inputError, setInputError] = useState(false)
+  const [searchInput, setSearchInput] = useState('')
+  const [searchError, setSearchError] = useState(false)
 
   const submitJoke = event => {
     event.preventDefault()
@@ -51,6 +54,20 @@ function Saved() {
     setFavorites([...favorites, userJoke])
   }
 
+  const searchForJoke = (searchWord) =>  {
+    // const searchTerm = searchWord.toLowerCase()
+    closeSearchModal()
+    const searchTerm = searchInput.toLowerCase()
+    console.log(searchTerm)
+    const results = favorites.filter(favorite => {
+      return favorite.joke.includes(searchTerm)
+    })
+    if(!results.length ) {
+      setSearchError(true)
+    }
+    setFavorites(results)
+  }
+
   const cleanInputs = () => {
     setNewJoke('')
   }
@@ -58,13 +75,23 @@ function Saved() {
   function openJokeModal() {
     setJokeModalIsOpen(true)
   }
+  function openSearchModal() {
+    setSeachModalIsOpen(true)
+  }
 
   function afterOpenJokeModal() {
     subtitle.style.color = 'white'
   }
+  function afterOpenSearchModal() {
+    subtitle.style.color = "white"
+  }
 
   function closeJokeModal() {
     setJokeModalIsOpen(false)
+  }
+  function closeSearchModal() {
+    setSeachModalIsOpen(false)
+    setSearchInput('')
   }
 
   const getFavorites = async () => {
@@ -89,7 +116,7 @@ function Saved() {
 
     return (
       <div className="saved">
-        <h2 className='header'>My favorite jokes</h2>
+        <h2 className="header">My favorite jokes</h2>
         <Link to="/">
           <Button aria-label="home" variant="contained" color="secondary">
             Home
@@ -97,6 +124,9 @@ function Saved() {
         </Link>
         <Button variant="contained" color="primary" onClick={openJokeModal}>
           Add a joke
+        </Button>
+        <Button variant="contained" color="secondary" onClick={openSearchModal}>
+          Search
         </Button>
         <Modal
           isOpen={jokeModalIsOpen}
@@ -109,40 +139,87 @@ function Saved() {
             Add a new joke here
           </h2>
           <form>
-              <textarea
-                className='text-area'
-                type="text"
-                wrap="soft"
-                style={{fontSize: 20}}
-                placeholder="Add joke here"
-                name="newJoke"
-                value={newJoke}
-                onChange={(event) => setNewJoke(event.target.value)}
-              />
-              <Button
-                className='modal-buttons'
-                variant="contained"
-                color="secondary"
-                icon={<SaveIcon />}
-                onClick={submitJoke}
-              >
-                Save joke
-              </Button>
-              {inputError === true && (
-                <h2>Please add joke before submitting</h2>
-              )}
-              <Button
-                className="modal-buttons"
-                variant="contained"
-                color="primary"
-                onClick={closeJokeModal}
-              >
-                CLOSE
-              </Button>
+            <textarea
+              className="text-area"
+              type="text"
+              wrap="soft"
+              style={{ fontSize: 20 }}
+              placeholder="Add joke here"
+              name="newJoke"
+              value={newJoke}
+              onChange={(event) => setNewJoke(event.target.value)}
+            />
+            <Button
+              className="modal-buttons"
+              variant="contained"
+              color="secondary"
+              icon={<SaveIcon />}
+              onClick={submitJoke}
+            >
+              Save joke
+            </Button>
+            {inputError === true && <h2>Please add joke before submitting</h2>}
+            <Button
+              className="modal-buttons"
+              variant="contained"
+              color="primary"
+              onClick={closeJokeModal}
+            >
+              CLOSE
+            </Button>
+          </form>
+        </Modal>
+        <Modal
+          isOpen={searchModalIsOpen}
+          onAfterOpen={afterOpenSearchModal}
+          onRequestClose={closeSearchModal}
+          style={customStyles}
+          contentLabel="Search jokes modal"
+        >
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)}>
+            Search for a joke here
+          </h2>
+          <form>
+            <input
+              className="search-area"
+              style={{ fontSize: 20 }}
+              type="search"
+              placeholder="Search"
+              name="searchInput"
+              value={searchInput}
+              onChange={(event) => setSearchInput(event.target.value)}
+            />
+            {inputError === true && (
+              <h2>Please add search parameter before submitting</h2>
+            )}
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={searchForJoke}
+            >
+              Search
+            </Button>
+            <Button
+              className="modal-buttons"
+              variant="contained"
+              color="primary"
+              data-testid="search-button"
+              onClick={closeSearchModal}
+            >
+              CLOSE
+            </Button>
           </form>
         </Modal>
         <div className="spacer"></div>
-        {!favorites.length && <h2>You do not have any saved jokes.</h2>}
+        {!favorites.length && searchError === false && (
+          <h2>You do not have any saved jokes.</h2>
+        )}
+        {searchError === true && (
+          <h2>
+            Sorry, there are no results for that search. Press
+            <Link to="/"> here</Link> to go home or reload the page.
+          </h2>
+        )}
         <Container jokeSlips={favorites} deleteJoke={deleteJoke} />
       </div>
     );
