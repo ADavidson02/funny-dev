@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { getJoke, addNewFavorite } from "../apiCalls/apiCalls";
+import { getJoke, addNewFavorite, getAllFavorites } from "../apiCalls/apiCalls";
 import Container from "../Container/Container";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
@@ -18,15 +18,17 @@ class Home extends Component {
   }
 
   componentDidMount = async () => {
+    const fetchedFavorites = await getAllFavorites();
     const fetchedJoke = await getJoke();
-    this.setState({ jokes: fetchedJoke.jokes });
+    console.log('joke', fetchedJoke)
+    this.setState({ jokes: fetchedJoke.jokes, favorites: fetchedFavorites });
   };
 
   saveCard = (id) => {
     const newFavorite = this.state.jokes.find(joke => joke.id === id )
-    if (!this.state.favorites.includes(newFavorite)) {
-      this.state.favorites.push(newFavorite)
+    if (!this.state.favorites.includes(newFavorite.id)) {
       addNewFavorite(newFavorite.id, newFavorite.joke)
+      return this.state.favorites.push(newFavorite)
     } else {
       return console.log("NO")
     }
