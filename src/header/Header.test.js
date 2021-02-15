@@ -7,6 +7,6 @@ describe("Header", () => {
     render(
       <Header />
     )
-    expect("Funny-Dev").toBeInTheDocument()
+    expect(screen.getByText("Funny-Dev")).toBeInTheDocument()
   })
 })
