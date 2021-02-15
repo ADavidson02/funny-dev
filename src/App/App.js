@@ -10,7 +10,7 @@ import Header from '../Header/Header';
 function App() {
   return (
     <section className="App">
-      <div>
+      <div style={{marginTop: '8em'}}>
         <Header />
       </div>
       <div>
