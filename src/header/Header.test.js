@@ -6,5 +6,6 @@ describe('Header', () => {
   it('should render the title of the site', () => {
     render(<Header />)
     expect(screen.getByText('Funny-Dev')).toBeInTheDocument()
+
   })
 })
