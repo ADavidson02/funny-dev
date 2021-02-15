@@ -1,6 +1,6 @@
 import { screen, render, waitFor, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Saved from './Saved';
+import Saved from './Saved.jsx';
 import useEvent from '@testing-library/user-event';
 import { BrowserRouter, Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';

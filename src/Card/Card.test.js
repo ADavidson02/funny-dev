@@ -1,7 +1,7 @@
 
 import { screen, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Card from "./Card";
+import Card from "./Card.jsx";
 import { BrowserRouter } from "react-router-dom";
 const renderWithRouter = (ui, {route = "/favorites"} = {}) => {
   window.history.pushState({}, "favorites", route)

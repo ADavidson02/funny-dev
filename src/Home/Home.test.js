@@ -1,6 +1,6 @@
 import { screen, render, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Home from "./Home";
+import Home from "./Home.jsx";
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
 import { getJoke } from "../apiCalls/apiCalls";

@@ -1,7 +1,7 @@
 
 import { screen, render } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import Container from "./Container"
+import Container from "./Container.jsx"
 
 
 describe("Container", () => {
