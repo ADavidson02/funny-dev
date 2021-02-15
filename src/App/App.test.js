@@ -2,9 +2,8 @@
 import { screen, render, waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import App from "./App.js";
+import App from "./App.jsx";
 import { Router, BrowserRouter } from "react-router-dom";
-import Header from "../Header/Header";
 import {
   getJoke,
   getAllFavorites,
@@ -153,16 +152,5 @@ describe("App", () => {
     userEvent.click(homeButton)
     await waitFor(() => 
       expect(screen.getByText("Joke one")).toBeInTheDocument())
-  })
-
-  it('should render the header component', () => {
-    const history = createMemoryHistory()
-    render(
-      <Router history={history}>
-        <App />
-      </Router>
-    )
-  
-    expect(screen.getByText("Funny-Dev")).toBeInTheDocument()
   })
 })

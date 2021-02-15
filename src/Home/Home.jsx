@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import { getJoke, addNewFavorite, getAllFavorites } from "../apiCalls/apiCalls";
-import Container from "../Container/Container";
+import Container from "../container/Container.jsx";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import "./Home.css";
@@ -36,7 +36,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home" style={{marginTop: "8em"}}>
+      <div className="home">
         <Link to="/favorites">
           <Button variant="contained" color="primary" className="favorite-button">My Favorites</Button>
         </Link>

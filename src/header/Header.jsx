@@ -1,11 +1,11 @@
-
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import './Header.css'
 import { AppBar } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import { Button } from '@material-ui/core'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 
 function Header() {
