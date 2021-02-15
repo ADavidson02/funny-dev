@@ -1,16 +1,15 @@
 
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "../home/Home.jsx";
+import Home from "../Home/Home";
 import React from "react";
-import Saved from "../saved/Saved.jsx";
-import Header from "../header/Header.jsx";
-
+import Saved from "../Saved/Saved";
+import Header from "../Header/Header";
 
 function App() {
   return (
     <section className="App">
-      <div style={{marginTop: "10em"}}>
+      <div style={{marginTop: '8em'}}>
         <Header />
       </div>
       <div>
