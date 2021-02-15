@@ -13,15 +13,19 @@ class Home extends Component {
     super();
     this.state = {
       jokes: [],
-      favorites: []
+      favorites: [],
+      error: false
     };
   }
 
   componentDidMount = async () => {
-    const fetchedFavorites = await getAllFavorites();
-    const fetchedJoke = await getJoke();
-    console.log('joke', fetchedJoke)
-    this.setState({ jokes: fetchedJoke.jokes, favorites: fetchedFavorites });
+    try{
+      const fetchedFavorites = await getAllFavorites();
+      const fetchedJoke = await getJoke();
+      this.setState({ jokes: fetchedJoke.jokes, favorites: fetchedFavorites });
+    } catch {
+      this.setState({error: true})
+    }
   };
 
   saveCard = (id) => {
@@ -41,6 +45,7 @@ class Home extends Component {
           <Button variant="contained" color="primary" className="favorite-button">My Favorites</Button>
         </Link>
         <Container jokeSlips={this.state.jokes} saveCard={this.saveCard} />
+        {this.error === true && <h2>An error has occured please try and reload the page</h2>}
       </div>
     );
   }
