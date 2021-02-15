@@ -1,7 +1,7 @@
 
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "../home/Home.jsx";
+import Home from "../home/Home";
 import React from "react";
 import Saved from "../saved/Saved.jsx";
 import Header from "../header/Header.jsx";
