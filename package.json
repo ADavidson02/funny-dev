@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
+    "@material/top-app-bar": "^10.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "bootstrap": "^4.5.3",
     "node-sass": "^5.0.0",
