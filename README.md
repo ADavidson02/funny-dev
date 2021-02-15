@@ -3,9 +3,10 @@
 
 # Mod 3 Binary Challange - Funny-Dev Joke board
 
-### The link to the repo can be found here
+### The link to the repo and API
+* Repo
 https://github.com/ADavidson02/funny-dev
-
+* API
 https://github.com/ADavidson02/funny-dev-api
 
 
