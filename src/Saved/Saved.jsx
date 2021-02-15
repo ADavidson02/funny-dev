@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllFavorites, removeJoke, addNewFavorite  } from '../apiCalls/apiCalls';
 import './Saved.css';
-import Container from '../Container/Container';
+import Container from '../container/Container';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import { Button } from "@material-ui/core";
