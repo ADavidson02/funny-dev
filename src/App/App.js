@@ -7,12 +7,10 @@ import Saved from "../Saved/Saved";
 import Header from '../Header/Header';
 
 
-
-
 function App() {
   return (
     <section className="App">
-      <div style={{marginTop: "10em"}}>
+      <div>
         <Header />
       </div>
       <div>
