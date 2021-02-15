@@ -1,7 +1,7 @@
 
 import React, { Component } from "react";
 import { getJoke, addNewFavorite, getAllFavorites } from "../apiCalls/apiCalls";
-import Container from "../Container/Container";
+import Container from "../container/Container.jsx";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import "./Home.css";

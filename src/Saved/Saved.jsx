@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { getAllFavorites, removeJoke, addNewFavorite  } from '../apiCalls/apiCalls';
 import './Saved.css';
-import Container from '../Container/Container';
+import Container from "../container/Container.jsx"
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import { Button } from "@material-ui/core";
@@ -116,11 +116,21 @@ function Saved() {
       <div className="saved">
         <h2 className="header">My favorite jokes</h2>
         <Link to="/">
-          <Button aria-label="home" variant="contained" color="secondary">
+          <Button
+            aria-label="home"
+            variant="contained"
+            color="secondary"
+            style={{ marginRight: '2em' }}
+          >
             Home
           </Button>
         </Link>
-        <Button variant="contained" color="primary" onClick={openJokeModal}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={openJokeModal}
+          style={{ marginRight: '2em' }}
+        >
           Add a joke
         </Button>
         <Button variant="contained" color="secondary" onClick={openSearchModal}>
@@ -215,12 +225,16 @@ function Saved() {
         {searchError === true && (
           <h2 data-testid="search-error">
             Sorry, there are no results for that search. Press
-            <Link to="/" data-testid="return-home"> here</Link> to go home or reload the page.
+            <Link to="/" data-testid="return-home">
+              {' '}
+              here
+            </Link>{' '}
+            to go home or reload the page.
           </h2>
         )}
         <Container jokeSlips={favorites} deleteJoke={deleteJoke} />
       </div>
-    );
+    )
 }
 
 Saved.propTypes = {
