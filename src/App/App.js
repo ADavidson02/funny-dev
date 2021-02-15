@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../Home/Home";
 import React from "react";
 import Saved from "../Saved/Saved";
-import Header from '../Header/Header';
-
+import Header from "../Header/Header";
 
 function App() {
   return (
