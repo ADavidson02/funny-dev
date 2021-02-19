@@ -14,7 +14,7 @@ export const getJoke = async () => {
 }
 
 export const getAllFavorites = async () => {
-  const response = await fetch('http://localhost:3001/api/v1/favorites')
+  const response = await fetch('https://funny-dev-api.herokuapp.com/')
   if (response.status >= 200 && response.status <= 299) {
     const jsonResponse = response.json()
     return jsonResponse
@@ -25,7 +25,7 @@ export const getAllFavorites = async () => {
 }
 
 export const addNewFavorite = (id, joke) => {
-  return fetch('http://localhost:3001/api/v1/favorites', {
+  return fetch('https://funny-dev-api.herokuapp.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const addNewFavorite = (id, joke) => {
 }
 
 export const removeJoke = (id) => {
-  return fetch(`http://localhost:3001/api/v1/favorites/${id}`, {
+  return fetch(`https://funny-dev-api.herokuapp.com/${id}`, {
     method: 'DELETE',
   })
     .then((response) => response.json())
