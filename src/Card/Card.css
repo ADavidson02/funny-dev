@@ -3,9 +3,8 @@
   flex-direction: center;
   justify-content: center;
   padding: 3px;
-  width: 47em;
-  padding: .5em;
-  margin: 3em;
+  width: 40em;
+  margin: 1em;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
   border-radius: 5px;
   position: relative;
@@ -14,7 +13,6 @@
 }
 
 .joke-card:before {
-  content: "";
   position: absolute;
   background: inherit;
   z-index: -1;
