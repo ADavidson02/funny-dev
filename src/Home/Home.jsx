@@ -30,7 +30,7 @@ class Home extends Component {
 
   saveCard = (id) => {
     const newFavorite = this.state.jokes.find(joke => joke.id === id )
-    if (!this.state.favorites.includes(newFavorite.id)) {
+    if (!this.state.favorites.includes(newFavorite)) {
       addNewFavorite(newFavorite.id, newFavorite.joke)
       return this.state.favorites.push(newFavorite)
     } else {
