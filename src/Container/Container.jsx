@@ -6,7 +6,9 @@ import PropTypes from "prop-types";
 
 
 const Container = (props) => {
-  const jokeCards = props.jokeSlips.map((joke) => {
+  const { jokeSlips} = props;
+
+  const jokeCards = jokeSlips.map((joke) => {
     return (
       <div key={joke.id} className="container">
         <Card
