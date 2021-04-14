@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 
 const Container = (props) => {
-  const { jokeSlips} = props;
+  const { jokeSlips, saveCard, deleteJoke } = props;
 
   const jokeCards = jokeSlips.map((joke) => {
     return (
@@ -14,8 +14,8 @@ const Container = (props) => {
         <Card
           id={joke.id}
           joke={joke.joke}
-          saveCard={props.saveCard}
-          deleteJoke={props.deleteJoke}
+          saveCard={saveCard}
+          deleteJoke={deleteJoke}
         />
       </div>
     );
