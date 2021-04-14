@@ -40,12 +40,21 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="home" style={{marginTop: "8em"}}>
-        <Link to="/favorites">
-          <Button variant="contained" color="primary" className="favorite-button">My Favorites</Button>
+      <div className='home' style={{ marginTop: '8em' }}>
+          <h2 className='header'>Daily Jokes</h2>
+        <Link to='/favorites'>
+          <Button
+            variant='contained'
+            color='primary'
+            className='favorite-button'
+          >
+            My Favorites
+          </Button>
         </Link>
         <Container jokeSlips={this.state.jokes} saveCard={this.saveCard} />
-        {this.error === true && <h2>An error has occured please try and reload the page</h2>}
+        {this.error === true && (
+          <h2>An error has occured please try and reload the page</h2>
+        )}
       </div>
     );
   }
