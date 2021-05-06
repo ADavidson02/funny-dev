@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { getAllFavorites, removeJoke, addNewFavorite  } from '../apiCalls/apiCalls';
+import * as API from '../apiCalls/apiCalls';
+
 import './Saved.css';
 import Container from '../Container/Container';
 import { Link } from 'react-router-dom';
@@ -45,7 +46,7 @@ function Saved() {
      return setInputError(true)
     }
     addNewUserJoke(newUserJoke)
-    addNewFavorite(newUserJoke.id, newUserJoke.joke)
+    API.addNewFavorite(newUserJoke.id, newUserJoke.joke)
     cleanInputs()
     closeJokeModal()
   }
@@ -92,23 +93,20 @@ function Saved() {
     setSearchInput('')
   }
 
-  const getFavorites = async () => {
-    try{
-      const favorites = await getAllFavorites()
-      setFavorites(favorites)
-    } catch (error) {
-      setError(error.message)
-    }
-  }
-
   useEffect(() => {
-    getFavorites()
-  }, [])
+    API.getAllFavorites().then((response) => {
+      if(!response.length) {
+        setError(true)
+        return
+      }
+      setFavorites(response)
+  })
+}, [])
 
 
   const deleteJoke = (id) => {
     const filteredJokes = favorites.filter((joke) => joke.id !== id);
-    removeJoke(id);
+    API.removeJoke(id);
     setFavorites(filteredJokes)
   };
 

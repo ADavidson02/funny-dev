@@ -1,4 +1,4 @@
-require('newrelic');
+
 export const getJoke = async () => {
   const response = await fetch(
     'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=2'
@@ -15,7 +15,9 @@ export const getJoke = async () => {
 };
 
 export const getAllFavorites = async () => {
-  const response = await fetch('https://funny-dev-api.herokuapp.com/');
+
+  const response = await fetch('https://funny-dev-api.herokuapp.com/api/v1/favorites')
+
   if (response.status >= 200 && response.status <= 299) {
     const jsonResponse = response.json();
     return jsonResponse;
@@ -26,7 +28,7 @@ export const getAllFavorites = async () => {
 };
 
 export const addNewFavorite = (id, joke) => {
-  return fetch('https://funny-dev-api.herokuapp.com/', {
+  return fetch('https://funny-dev-api.herokuapp.com/api/v1/favorites', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -42,7 +44,7 @@ export const addNewFavorite = (id, joke) => {
 };
 
 export const removeJoke = (id) => {
-  return fetch(`https://funny-dev-api.herokuapp.com/${id}`, {
+  return fetch(`https://funny-dev-api.herokuapp.com/api/v1/favorites/${id}`, {
     method: 'DELETE',
   })
     .then((response) => response.json())
