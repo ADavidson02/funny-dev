@@ -1,28 +1,29 @@
+require('newrelic');
 export const getJoke = async () => {
   const response = await fetch(
     'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=single&amount=2'
-  )
+  );
   if (response.status >= 200 && response.status <= 299) {
-    const jsonResponse = await response.json()
-    return jsonResponse
+    const jsonResponse = await response.json();
+    return jsonResponse;
   } else {
     console.log(
       `Error! Code: ${response.status} There seems to be a problem with the server. Please refresh the page.`
-    )
-    return response.status
+    );
+    return response.status;
   }
-}
+};
 
 export const getAllFavorites = async () => {
-  const response = await fetch('https://funny-dev-api.herokuapp.com/')
+  const response = await fetch('https://funny-dev-api.herokuapp.com/');
   if (response.status >= 200 && response.status <= 299) {
-    const jsonResponse = response.json()
-    return jsonResponse
+    const jsonResponse = response.json();
+    return jsonResponse;
   } else {
-    console.log(`Error code ${response.status}`)
-    return response.status
+    console.log(`Error code ${response.status}`);
+    return response.status;
   }
-}
+};
 
 export const addNewFavorite = (id, joke) => {
   return fetch('https://funny-dev-api.herokuapp.com/', {
@@ -37,8 +38,8 @@ export const addNewFavorite = (id, joke) => {
   })
     .then((response) => response.json())
     .then((data) => console.log(data))
-    .catch((error) => console.log(error))
-}
+    .catch((error) => console.log(error));
+};
 
 export const removeJoke = (id) => {
   return fetch(`https://funny-dev-api.herokuapp.com/${id}`, {
@@ -46,5 +47,5 @@ export const removeJoke = (id) => {
   })
     .then((response) => response.json())
     .then((result) => console.log('result', result))
-    .catch((error) => console.log(error))
-}
+    .catch((error) => console.log(error));
+};
