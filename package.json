@@ -8,6 +8,7 @@
     "@material/top-app-bar": "^10.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "bootstrap": "^4.5.3",
+    "newrelic": "^7.3.1",
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
